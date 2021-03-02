@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="com.cn.mybatis.test1.dao.userMapper"就是com.cn.mybatis.test1.dao(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.example.cartoon_management.dao.AdminDao">
+	<!-- 根据账户名和密码，查询得到一个admin对象 -->
+	<select id="login" resultType="Admin">
+		select * from admin where username=#{username} and password=#{password}
+	</select>
+	<!--添加admin对象-->
+	<insert id="adminAdd" useGeneratedKeys="true" keyProperty="id">
+		insert into admin(id,username,password,name,sex,email,createTime) values(null,#{username},#{password},#{name},#{sex},#{email},#{createTime})
+	</insert>
+	<!--用户名是否重名-->
+	<select id="existsAdmin" resultType="Admin">
+		select * from admin where username=#{username}
+</select>
+	<!--删除-->
+	<delete id="adminDelete">
+		delete from admin where id=#{id}
+	</delete>
+	<!--修改-->
+	<update id="adminUpdate">
+		update admin
+		<set>
+			<if test="username!=null and username.length()>0">username=#{username},</if>
+			<if test="password!=null and password.length()>0">password=#{password},</if>
+			<if test="name!=null and name.length()>0">name=#{name},</if>
+			<if test="sex!=null and sex.length()>0">sex=#{sex},</if>
+			<if test="email!=null and email.length()>0">email=#{email},</if>
+		</set>
+		where id=#{id}
+	</update>
+<!--查询-->
+	<select id="AdminList" resultType="Admin">
+		select * from admin  order by id asc
+	</select>
+<!--分页-->
+	<select id="getPartlist" resultType="Admin">
+		select * from admin order by id asc limit #{offset},#{length}
+	</select>
+	<select id="getAdmin"  resultType="Admin">
+		select * from admin where id=#{id}
+	</select>
+
+	<select id="query" resultType="Admin">
+		select * from admin order by id asc limit #{offset},#{length}
+	</select>
+
+	<select id="querySize" resultType="int">
+		select count(1) from admin
+	</select>
+	<!--总数据-->
+	<select id="total" resultType="int">
+		select count(id) from admin
+	</select>
+	<!--获取表中所有的数据-->
+	<select id="readAll" resultType="Admin">
+		select * from admin order by id desc
+	</select>
+</mapper>
