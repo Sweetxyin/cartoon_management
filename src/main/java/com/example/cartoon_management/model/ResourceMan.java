@@ -15,7 +15,9 @@ public class ResourceMan {
     public ResourceMan(Integer id) {
         this.id = id;
     }
+    public ResourceMan() {
 
+    }
     public Integer getId() {
         return id;
     }

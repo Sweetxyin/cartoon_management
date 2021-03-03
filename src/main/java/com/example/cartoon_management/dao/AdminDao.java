@@ -5,6 +5,10 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/*
+ * 该接口用来与mybatis的对应映射文件对接
+ */
+
 public interface AdminDao {
     /**
      *   管理员登录功能
@@ -39,7 +43,7 @@ public interface AdminDao {
      * @param id
      * @return
      */
-    Admin getAdminId(Integer id);
+    Admin getAdmin(Integer id);
 
     /**
      * 根据id删除管理员账号

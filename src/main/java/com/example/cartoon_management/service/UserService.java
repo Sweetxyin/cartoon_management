@@ -1,48 +1,48 @@
 package com.example.cartoon_management.service;
 
 
-import com.example.cartoon_management.model.ResourceMan;
+
+import com.example.cartoon_management.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public interface ResourceService {
+public interface UserService {
 
 
     /**
      * 返回所有集合
      * @return
      */
-    List<ResourceMan> getResourceList();
-
+    List<User> getUserList();
     /**
      * 添加一条数据
-     * @param resourceMan
+     * @param user
      * @return
      */
-    boolean resourceAdd(ResourceMan resourceMan);
+    boolean userAdd(User user);
 
     /**
      * 修改一条数据
-     * @param resourceMan
+     * @param user
      * @return
      */
-    boolean resourceUpdate(ResourceMan resourceMan);
+    boolean userUpdate(User user);
 
     /**
      * 根据标识符获取ID
      * @param id
      * @return
      */
-    ResourceMan getResource(Integer id);
+    User getUser(Integer id);
 
     /**
      *根据id删除账号
      * @param id
      * @return
      */
-    boolean resourceDelete(Integer id);
+    boolean userDelete(Integer id);
 
 
 

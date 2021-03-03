@@ -30,5 +30,8 @@
 		select * from resource  order by id asc
 	</select>
 
+	<select id="getResource"  resultType="ResourceMan">
+		select * from resource where id=#{id}
+	</select>
 
 </mapper>

@@ -1,49 +1,47 @@
 package com.example.cartoon_management.dao;
 
-import com.example.cartoon_management.model.Admin;
-import com.example.cartoon_management.model.ResourceMan;
-import org.apache.ibatis.annotations.Param;
+import com.example.cartoon_management.model.User;
 
 import java.util.List;
 /*
  * 该接口用来与mybatis的对应映射文件对接
  */
-public interface ResourceDao {
+public interface UserDao {
 
 
     /**
      * 返回所有集合
      * @return
      */
-    List<ResourceMan> getResourceList();
+    List<User> getUserList();
 
     /**
      * 添加一条数据
-     * @param resourceMan
+     * @param user
      * @return
      */
-    int resourceAdd(ResourceMan resourceMan);
+    int userAdd(User user);
 
     /**
      * 修改
-     * @param resourceMan
+     * @param user
      * @return
      */
-    int resourceUpdate(ResourceMan resourceMan);
+    int userUpdate(User user);
 
     /**
      * 根据标识符获取id
      * @param id
      * @return
      */
-    ResourceMan getResource(Integer id);
+   User getUser(Integer id);
 
     /**
      * 根据id删除账号
      * @param id
      * @return
      */
-    int resourceDelete(Integer id);
+    int userDelete(Integer id);
 
 
 

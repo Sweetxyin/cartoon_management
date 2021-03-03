@@ -65,10 +65,6 @@ public class ResourceController {
     @PutMapping
     public Map<String,Object> doUpdateResource(@RequestBody ResourceMan resourceMan){
         Map<String,Object> map=new HashMap<String, Object>();
-        if (resourceMan.getUsername().equals("")){
-            map.put("msg","账户名不能为空！");
-        }
-        else {
             if (resourceService.resourceUpdate(resourceMan)){
                 map.put("code",0);
                 map.put("msg","基本信息修改成功！");
@@ -76,7 +72,6 @@ public class ResourceController {
                 map.put("code",1);
                 map.put("msg","基本信息修改失败！");
             }
-        }
         return map;
     }
 
@@ -99,6 +94,15 @@ public class ResourceController {
                 map.put("msg","账户添加失败！");
             }
 //        }
+        return map;
+    }
+    @ApiOperation(value = "读取指定账户", notes = "根据id的值读取指定账户")
+    @ApiImplicitParam(name = "id", value = "要读取的账户id", paramType = "path",dataType="int", required = true,example="1")
+    @GetMapping("/{id}")
+    public Map<String, Object>  getResource(@PathVariable Integer id){
+        Map<String, Object> map=new HashMap<String, Object>();
+        map.put("code",0);
+        map.put("data",resourceService.getResource(id));
         return map;
     }
 }

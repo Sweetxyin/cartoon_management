@@ -48,10 +48,10 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     @Override
-    public ResourceMan getresourceId(Integer id) {
+    public ResourceMan getResource(Integer id) {
         ResourceMan resourceMan=null;
         if (id!=null){
-            resourceMan=resourceDao.getResourceId(id);
+            resourceMan=resourceDao.getResource(id);
         }
         return resourceMan;
     }

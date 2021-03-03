@@ -40,21 +40,19 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public boolean adminUpdate(Admin admin) {
         boolean status=false;
-        if (adminDao.existsAdmin(admin.getUsername())==null){//如果不重名
             if (adminDao.adminUpdate(admin)==1){
                 status=true;
             }else {
                 status=false;
             }
-        }
         return status;
     }
 
     @Override
-    public Admin getAdminId(Integer id) {
+    public Admin getAdmin(Integer id) {
         Admin admin=null;
         if (id!=null){
-            admin=adminDao.getAdminId(id);
+            admin=adminDao.getAdmin(id);
         }
         return admin;
     }
@@ -81,4 +79,7 @@ public class AdminServiceImpl implements AdminService {
             return false;
         }
     }
+
+
+
 }

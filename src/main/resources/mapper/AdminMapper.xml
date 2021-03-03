@@ -12,6 +12,10 @@
 	<insert id="adminAdd" useGeneratedKeys="true" keyProperty="id">
 		insert into admin(id,username,password,name,sex,email,createTime) values(null,#{username},#{password},#{name},#{sex},#{email},#{createTime})
 	</insert>
+	<!--添加admin对象-->
+	<insert id="saveAdmin" useGeneratedKeys="true" keyProperty="id">
+		insert into admin(id,username,password,name,sex,email,createTime) values(null,#{username},#{password},#{name},#{sex},#{email},#{createTime})
+	</insert>
 	<!--用户名是否重名-->
 	<select id="existsAdmin" resultType="Admin">
 		select * from admin where username=#{username}

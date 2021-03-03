@@ -1,31 +1,18 @@
 package com.example.cartoon_management.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
-
-public class Admin {
-
-
+public class User {
     private Integer id;
     private String username;//用户名
     private String password;//密码
     private String name;//网名
-    private String sex;//性别
+    private String tel;//电话号码
     private String email;//邮箱
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date createTime;//创建时间
 
-    /**
-     * 构造方法
-     * @param id
-     */
-    public Admin(Integer id) {
-        this.id = id;
+    public User() {
+
     }
-
-    public Admin() {
-
+    public User(Integer id) {
+        this.id = id;
     }
 
     public Integer getId() {
@@ -44,12 +31,12 @@ public class Admin {
         this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public String getTel() {
+        return tel;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public String getPassword() {
@@ -60,12 +47,12 @@ public class Admin {
         this.password = password;
     }
 
-    public String getSex() {
-        return sex;
+    public String getName() {
+        return name;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -75,13 +62,4 @@ public class Admin {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
 }

@@ -36,11 +36,11 @@ public interface AdminService {
     boolean adminUpdate(Admin admin);
 
     /**
-     * 根据标识符获取ID
+     * 根据ID获取标识符
      * @param id
      * @return
      */
-    Admin getAdminId(Integer id);
+    Admin getAdmin(Integer id);
 
     /**
      *根据id删除账号
@@ -55,5 +55,7 @@ public interface AdminService {
      * @return 返回个数，0表示不重名
      */
     boolean existsAdmin(String username);
+
+
 
 }
